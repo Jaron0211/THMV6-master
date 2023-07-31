@@ -11,6 +11,7 @@
 #include "THMV6_master.h"
 #include <Arduino.h>
 
+SoftwareSerial THMV6_serial(thvmtx,thvmrx);
 
 void THMV6::CRC16(char *pushMsg, unsigned short usDataLen)
 {
@@ -18,7 +19,7 @@ void THMV6::CRC16(char *pushMsg, unsigned short usDataLen)
 }
 
 void THMV6::init(){
-  THMV6::THMV6_serial.begin(9600);
+  THMV6_serial.begin(9600);
 }
 
 float THMV6::ReadTH(float output[2]) {
@@ -26,7 +27,7 @@ float THMV6::ReadTH(float output[2]) {
   float return_int[2];
 
   for ( int i; i < 9; i++) {
-    THMV6::THMV6_serial.write(THMV6::send_command[i]);
+    THMV6_serial.write(THMV6::send_command[i]);
   }
 
   int income_counter = 0;
@@ -35,8 +36,8 @@ float THMV6::ReadTH(float output[2]) {
   bool success_read = false;
 
   while (true) {
-    if (THMV6::THMV6_serial.available()) {
-      int _buf = THMV6::THMV6_serial.read();
+    if (THMV6_serial.available()) {
+      int _buf = THMV6_serial.read();
       //Serial.println(_buf);
       data_buffer[income_counter] = _buf;
       ++income_counter;
