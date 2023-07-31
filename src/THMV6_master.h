@@ -40,3 +40,4 @@ class THMV6 {
 
     SoftwareSerial THMV6_serial(com_port_tx,com_port_rx);
 };
+#endif
