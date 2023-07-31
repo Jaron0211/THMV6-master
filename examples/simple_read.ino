@@ -1,11 +1,12 @@
-#include "modbusmaster.h"
+#include "THMV6_master.h"
 
 //sensor pin
-int tx = 16;
-int rx = 17;
-int timeout = 1000;
+int tx = 16; //tx pin
+int rx = 17; //rx pin
+int timeout = 1000; //SoftwareSerial timeout
 
-THMV6 thmv6(tx,rx,timeout);
+THMV6 thmv6(tx,rx,timeout); //create sensor object
+float read_data[2] = {0.0,0.0}; 
 
 void setup(){
     Serial.begin(9600);
@@ -13,7 +14,7 @@ void setup(){
 }
 
 void loop(){
-    float read_data[2] = {0.0,0.0}; 
+
     thmv6.ReadTH(read_data);
     float temp = read_data[0];
     float hum = read_data[1];

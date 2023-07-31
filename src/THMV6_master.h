@@ -8,17 +8,16 @@
   THIS CODE IS ONLY FOR TEST PURPOSE, DON'T USE IN COMMERCIAL.
 */
 
+#ifndef THMV6_h
+#define THMV6_h
+
 #include <SoftwareSerial.h>
 #include <Arduino.h>
-
-extern int tx,rx;
 
 class THMV6 {
 
   public:
 
-    int com_port_tx ;
-    int com_port_rx ;
     THMV6(int _com_port_tx, int _com_port_rx, int _timeout) : com_port_tx(_com_port_tx), com_port_rx(_com_port_rx), timeout(_timeout)
     {
     }
@@ -34,4 +33,10 @@ class THMV6 {
 
     int send_command[8] = {0x01, 0x03, 0x00, 0x02, 0x00, 0x02, 0x65, 0xCB};
 
+  private:
+    
+    int com_port_tx ;
+    int com_port_rx ;
+
+    SoftwareSerial THMV6_serial(com_port_tx,com_port_rx);
 };
