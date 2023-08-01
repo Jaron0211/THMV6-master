@@ -1,11 +1,11 @@
 #include "THMV6_master.h"
 
 //sensor pin
-int thvmtx = 16; //tx pin
-int thvmrx = 17; //rx pin
+int thvm_tx = 16; //tx pin
+int thvm_rx = 17; //rx pin
 int timeout = 1000; //SoftwareSerial timeout
 
-THMV6 thmv6(thvmtx,thvmrx,timeout); //create sensor object
+THMV6 thmv6(thvm_tx,thvm_rx,timeout); //create sensor object
 float read_data[2] = {0.0,0.0}; 
 
 void setup(){
