@@ -1,6 +1,6 @@
 #include "THMV6_master.h"
 
-//sensor pin
+//sensor pin, base on SoftwareSerial
 int thvm_tx = 16; //tx pin
 int thvm_rx = 17; //rx pin
 int timeout = 1000; //SoftwareSerial timeout
@@ -10,7 +10,7 @@ float read_data[2] = {0.0,0.0};
 
 void setup(){
     Serial.begin(9600);
-    thmv6.init();
+    thmv6.init(9600);
 }
 
 void loop(){
