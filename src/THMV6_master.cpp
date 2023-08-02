@@ -1,7 +1,7 @@
 /*
   Author: Jian Lun, Lee
   Date: 2023/05/12
-  Version: 0.0.1-preview
+  Version: 1.0.0
   Platform: ESP32-AIOT AirBox
 
   CAUTION:
@@ -21,10 +21,10 @@ void THMV6::CRC16(char *pushMsg, unsigned short usDataLen)
   Serial.println("pui pui");
 }
 
-void THMV6::init()
+void THMV6::init(int baudrate)
 {
   THMV6::THMV6_serial = new SoftwareSerial(THMV6::com_port_tx,THMV6::com_port_rx);
-  THMV6::THMV6_serial -> begin(9600);
+  THMV6::THMV6_serial -> begin(baudrate);
 }
 
 float THMV6::ReadTH(float output[2]) {

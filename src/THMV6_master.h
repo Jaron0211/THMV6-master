@@ -25,7 +25,7 @@ class THMV6 {
 
     void CRC16(char *pushMsg, unsigned short usDataLen);
 
-    void init();
+    void init(int buadrate);
     float ReadTH(float output[2]);
 
     unsigned long send_cooldown_timer = millis();
