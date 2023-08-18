@@ -2,7 +2,7 @@
 HardwareSerial tempHumidSensor(2);//創建一個新的Serial物件,命名為tempHumidsensor
 
 void setup() {
-    tempHumidSensor.begin(9600,SERIAL_6N1,16,17);//初始化电口,使用9600波特率,個數位,校驗位,個停业位,使用GPI016料
+    tempHumidSensor.begin(9600,SERIAL_8N1,16,17);//初始化电口,使用9600波特率,個數位,校驗位,個停业位,使用GPI016料
     Serial.begin(9600);// 初始化另一個串口,用於顯示接收到的數據
 }
 
